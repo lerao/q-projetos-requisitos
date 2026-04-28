@@ -84,6 +84,38 @@ Entidade principal do sistema.
 
 ## 5. Requisitos Funcionais e Cenários de Uso
 
+### **Módulo Externo (Público)**
+
+#### **[CEN01] - Exploração do Catálogo (Vitrine)**
+* **RF01:** O sistema deve listar na página inicial todos os projetos que possuam o status "Publicado".
+* **RF02:** O sistema deve exibir os projetos em formato de cards, apresentando obrigatoriamente a imagem de capa (banner) carregada do servidor.
+* **RF03:** O sistema deve permitir a busca por texto livre, filtrando resultados por título, descrição ou nome do coordenador.
+* **RF04:** O sistema deve oferecer filtros rápidos por Categoria (Ensino, Pesquisa, Extensão) e por Status de Inscrição (Aberto/Encerrado).
+* **RF05:** O sistema deve disponibilizar uma página de detalhes para cada projeto, apresentando a descrição completa, o número de vagas e a modalidade (Bolsista/Voluntário), se está aberto o período de inscrição, ciclo de vida do projeto, entre outros.
+
+#### **[CEN02] - Manifestação de Interesse e Direcionamento Externo**
+* **RF06:** O sistema deve permitir que o usuário autenticado via Google marque projetos como favoritos ("Gostei"), salvando-os em seu perfil.
+* **RF07:** O sistema deve exibir o botão "Inscrever-se", que redireciona o usuário para o link externo (Google Forms/Edital) cadastrado pelo coordenador.
+* **RF08:** O sistema deve disponibilizar o botão "Tenho Interesse", exclusivo para usuários autenticados, que abre um formulário simplificado.
+* **RF09:** O formulário de interesse deve coletar obrigatoriamente a "Série/Período" e a "Modalidade Pretendida".
+* **RF10:** Após a confirmação do interesse, o sistema deve registrar o Lead no banco de dados e disparar uma notificação automática (e-mail) ao Coordenador com os dados de contato do aluno.
+
+### **Módulo Logado (Admin)**
+
+#### **[CEN03] - Gestão de Conteúdo (Coordenador)**
+* **RF11:** O sistema deve permitir que o Coordenador cadastre propostas de projetos, preenchendo os dados e realizando o upload de arquivos de imagem (JPG/PNG) e/ou arquivo do edital do projeto (PDF).
+* **RF12:** O sistema deve permitir que o Coordenador ou Colaborador ou Bolsistas/Voluntários do projeto, editem as informações de seus projetos. Porém, alterações em campos estruturais devem retornar o projeto ao status "Pendente" para nova moderação do Coordenador/Colaborador do projeto.
+* **RF13:** O sistema deve permitir que o Coordenador altere manualmente o status das inscrições para "Fechado", ocultando os botões de interação na vitrine.
+
+#### **[CEN04] - Painéis de Acompanhamento (Leads e Histórico)**
+* **RF14:** O sistema deve prover ao Coordenador/Colaborador uma área restrita para visualizar a lista consolidada de alunos que demonstraram interesse em seus projetos (Nome, E-mail, Série e Modalidade).
+* **RF15:** O sistema deve prover ao Estudante uma área de "Meu Histórico", listando os projetos favoritados e as manifestações de interesse realizadas.
+
+### **[CEN05] - Moderação e Governança (Admin)**
+* **RF16:** O sistema deve prover ao Administrador um painel de moderação para, se necessário, editar todos os dados, excluir projetos ou marcar projetos como pendentes se necessário (para sairem da publicação externa).
+* **RF17:** O sistema deve permitir que o Administrador atribua manualmente o perfil de "Coordenador" a usuários do sistema.
+* **RF18:** O sistema deve permitir a gestão global de categorias e usuários institucionais.
+
 
 ## 6. Requisitos Não Funcionais
 * **[RNF01] - Tecnologia:** Back-end Java/Spring Boot, Banco MySQL.
